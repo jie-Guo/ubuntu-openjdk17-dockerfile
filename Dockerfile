@@ -28,6 +28,6 @@ RUN apt -y install ffmpeg libavcodec-dev libavdevice-dev libavfilter-dev libavfo
         && mv opencv* opencv && mkdir build && cd build \
         && cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -DBUILD_TESTS=OFF ../opencv \
         && make && make install \
-        && rm -rf /var/lib/apt/lists/*
+        && rm -rf /var/lib/apt/lists/* && rm -rf /app/*
 
 CMD ["/bin/bash"]
