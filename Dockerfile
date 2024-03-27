@@ -16,9 +16,9 @@ ENV TZ=Asia/Shanghai
 # https://hub.docker.com/_/ubuntu
 RUN apt -y install openjdk-17-jdk ffmpeg cmake g++ \
 	&& mv opencv* opencv && mkdir build && cd build \
-	&& cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ../opencv \
-	&& make && make install \
         && rm -rf /var/lib/apt/lists/*
+	#&& cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ../opencv \
+	#&& make && make install \
 
 # JAVA环境变量
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
