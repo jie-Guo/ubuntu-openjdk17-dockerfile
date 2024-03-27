@@ -15,10 +15,9 @@ ENV LC_ALL=en_US.utf8
 ENV TZ=Asia/Shanghai
 
 # https://hub.docker.com/_/ubuntu
-RUN apt -y install ffmpeg \
+RUN apt -y install ffmpeg libavcodec-dev libavdevice-dev libavfilter-dev libavformat-dev libavutil-dev libpostproc-dev libswresample-dev libswscale-dev \
         && mv opencv* opencv && mkdir build && cd build \
         && rm -rf /var/lib/apt/lists/* \
-        && cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
         && echo "Asia/Shanghai" > /etc/timezone
         #&& cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ../opencv \
         #&& make && make install \
