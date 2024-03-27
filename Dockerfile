@@ -8,7 +8,7 @@ WORKDIR /app
 
 # 在线版本
 # https://hub.docker.com/_/ubuntu
-RUN apt update && apt full-upgrade -y && apt install -y locales wget pkg-config openjdk-17-jdk cmake g++ tzdata \
+RUN DEBIAN_FRONTEND=noninteractive apt update && apt full-upgrade -y && apt install -y locales wget pkg-config openjdk-17-jdk cmake g++ tzdata \
         && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
         && echo "Asia/Shanghai" > /etc/timezone \
         && wget -O opencv.tar.gz https://github.com/opencv/opencv/archive/refs/tags/4.9.0.tar.gz \
